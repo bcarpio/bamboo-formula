@@ -20,7 +20,7 @@ python-pip:
 docker-py:
   pip.installed:
     - require:
-       - pkg: python-pip
+       - pip: python-pip
 
 bamboo_container:
   docker.pulled:
@@ -42,11 +42,20 @@ bamboo_container_installed:
        - "CONFIG_PATH": "config/production.example.json"
     - ports:
        - "8000/tcp"
+       - "80/tcp"
+       - "443/tcp"
 
 bamboo_service:
   docker.running:
     - name: bamboo
     - port_bindings:
-        "80/tcp":
+        "8000/tcp":
             HostIp: ""
             HostPort: "8000"
+        "80/tcp":
+            HostIp: ""
+            HostPort: "80"
+        "443/tcp":
+            HostIp: ""
+            HostPort: "443"
+
