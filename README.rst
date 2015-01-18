@@ -1,13 +1,8 @@
 =========
-mesosphere - work in progress formula
+bamboo - work in progress formula
 =========
 
-Formula to set up and configure a mesosphere cluster.
-
-.. note::
-
-    See the full `Salt Formulas installation and usage instructions
-    <http://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html>`_.
+Formula to set up a babmoo server for Mesosphere
 
 Available states
 ================
@@ -15,19 +10,12 @@ Available states
 .. contents::
     :local:
 
-``mesosphere``
+``bamboo``
 -------------
 
-Adds the mesosphere package repository and installs mesosphere.
-
-``mesosphere.master``
---------------------
-
-Includes `mesosphere` to install mesosphere and runs the `mesos-master` service. A Zookeeper is automatically installed and started as well. A Mesosphere install is also added to the master node.
-
-``mesosphere.slave``
---------------------
-
-Includes `mesosphere` to install mesosphere and runs the `mesos-slave` service.
+Installs Haproxy
+Installs Docker.IO
+Installs Bamboo Docker Container
+Listens On 8000
 
 Tested on Ubuntu 14.04.

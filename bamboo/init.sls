@@ -11,7 +11,16 @@ docker-py:
     - require:
       - pkg: python-pip
 
-bamboo:
+bamboo_container:
   docker.pulled:
     - name: bcarpip/bamboo
     - tag: {{ bamboo.tag }}
+
+bamboo_service:
+  docker.running:
+    - container: bcarpio/bamboo
+    - port_bindings:
+        "8000/tcp":
+            HostIp: ""
+            HostPort: "8000"
+

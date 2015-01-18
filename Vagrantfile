@@ -8,9 +8,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "ubuntu/trusty64"
   config.vm.synced_folder "./.vagrant-salt", "/srv/salt"
 
-  config.vm.network "forwarded_port", guest: 5050, host: 5050
-  config.vm.network "forwarded_port", guest: 5051, host: 5051
-  config.vm.network "forwarded_port", guest: 8080, host: 8080
+  config.vm.network "forwarded_port", guest: 8000, host: 8000
 
   config.ssh.forward_agent = true
 
