@@ -1,9 +1,9 @@
-{% set p    = salt['pillar.get']('mesosphere', {}) %}
+{% set p    = salt['pillar.get']('bamboo', {}) %}
 {% set pc   = p.get('config', {}) %}
-{% set g    = salt['grains.get']('mesosphere', {}) %}
+{% set g    = salt['grains.get']('bamboo', {}) %}
 {% set gc   = g.get('config', {}) %}
 
 {%- set bamboo = {} %}
-{%- do bamoo.update( {
+{%- do bamboo.update( {
   'tag'		            : p.get('tag', 'v0.2.8'),
   }) %}
