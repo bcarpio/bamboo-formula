@@ -1,7 +1,7 @@
 {%- from 'zookeeper/settings.sls' import zk with context %}
 {%- from 'bamboo/settings.sls' import bamboo with context %}
 
-base:
+docker-repo:
   pkgrepo.managed:
     - humanname: Docker PPA
     - name: deb https://get.docker.com/ubuntu docker main
@@ -20,12 +20,14 @@ python-pip:
 docker-py:
   pip.installed:
     - require:
-      - pkg: python-pip
+       - pkg: python-pip
 
 bamboo_container:
   docker.pulled:
     - name: bcarpio/bamboo
     - tag: {{ bamboo.tag }}
+    - require:
+       - pkg: docker-py
 
 bamboo_container_installed:
   docker.installed:
