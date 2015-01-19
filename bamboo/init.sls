@@ -37,3 +37,6 @@ bamboo_service:
         "443/tcp":
             HostIp: ""
             HostPort: "443"
+        "9000/tcp":
+            HostIp: ""
+            HostPort: "9000"
