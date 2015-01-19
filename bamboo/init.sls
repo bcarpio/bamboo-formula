@@ -6,7 +6,7 @@ bamboo_container:
     - name: bcarpio/bamboo
     - tag: {{ bamboo.tag }}
     - require:
-       - pkg: docker-py
+       - pip: docker-py
 
 bamboo_container_installed:
   docker.installed:
