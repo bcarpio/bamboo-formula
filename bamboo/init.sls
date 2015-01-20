@@ -23,10 +23,12 @@ bamboo_container_installed:
        - "8000/tcp"
        - "80/tcp"
        - "443/tcp"
+       - "9000/tcp"
 
 bamboo_service:
   docker.running:
     - name: bamboo
+    - image: bcarpio/bamboo:{{ bamboo.tag }}
     - port_bindings:
         "8000/tcp":
             HostIp: ""

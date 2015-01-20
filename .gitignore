@@ -1,1 +1,7 @@
 .vagrant
+.vagrant-salt/docker
+.vagrant-salt/docker-formula/
+.vagrant-salt/mesosphere
+.vagrant-salt/mesosphere-formula/
+.vagrant-salt/zookeeper
+.vagrant-salt/zookeeper-formula/
