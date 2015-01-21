@@ -5,7 +5,7 @@
 
 {%- set bamboo = {} %}
 {%- do bamboo.update( {
-  'tag'                 : pc.get('tag', 'v0.2.8-01'),
+  'tag'                 : pc.get('tag', '0.2.4'),
   'marathon_endpoint'   : pc.get('marathon_endpoint', 'http://10.0.2.15:8080'),
   'bind_port'           : pc.get('bind_port', '8000'),
   'zookeeper_path'      : pc.get('zookeeper_path', '/bamboo')
