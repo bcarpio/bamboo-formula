@@ -2,9 +2,9 @@
 {%- from 'bamboo/settings.sls' import bamboo with context %}
 
 /etc/bamboo/haproxy_template.cfg:
-file.managed:
-    - name: /etc/bamboo/haproxy_template.cfg
-    - source: salt://bamboo//haproxy_template.cfg
+  file.managed:
+      - name: /etc/bamboo/haproxy_template.cfg
+      - source: salt://bamboo//haproxy_template.cfg
 
 bamboo_container:
   docker.pulled:
