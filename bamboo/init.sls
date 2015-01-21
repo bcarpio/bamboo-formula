@@ -23,7 +23,6 @@ bamboo_container_installed:
        - "BAMBOO_ENDPOINT": "http://localhost:{{ bamboo.bind_port }}"
        - "BAMBOO_ZK_HOST": {{ zk.connection_string }}
        - "BAMBOO_ZK_PATH": {{ bamboo.zookeeper_path }}
-       - "BIND": :{{ bamboo.bind_port }}
        - "CONFIG_PATH": "config/production.example.json"
        - "HAPROXY_TEMPLATE_PATH": "/etc/bamboo/haproxycfg.template"
     - ports:
@@ -35,6 +34,7 @@ bamboo_container_installed:
 bamboo_service:
   docker.running:
     - name: bamboo
+    - command: '-bind=":8000"'
     - image: docker-prd.itriagehealth.com/bamboo:{{ bamboo.tag }}
     - volumes:
       - /etc/bamboo:/etc/bamboo
