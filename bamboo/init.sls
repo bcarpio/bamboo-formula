@@ -17,6 +17,7 @@ bamboo_container:
 bamboo_container_installed:
   docker.installed:
     - name: bamboo
+    - command: '-bind=":8000"'
     - image: docker-prd.itriagehealth.com/bamboo:{{ bamboo.tag }}
     - environment:
        - "MARATHON_ENDPOINT": "{{ bamboo.marathon_endpoint }}"
@@ -30,14 +31,13 @@ bamboo_container_installed:
        - "80/tcp"
        - "443/tcp"
        - "9000/tcp"
+    - volumes:
+       - /etc/bamboo:/etc/bamboo
 
 bamboo_service:
   docker.running:
     - name: bamboo
-    - command: '-bind=":8000"'
     - image: docker-prd.itriagehealth.com/bamboo:{{ bamboo.tag }}
-    - volumes:
-      - /etc/bamboo:/etc/bamboo
     - port_bindings:
         "8000/tcp":
             HostIp: ""
