@@ -5,6 +5,7 @@
   file.managed:
       - name: /etc/bamboo/haproxy_template.cfg
       - source: salt://bamboo/files/haproxy_template.cfg
+      - makedirs: True
 
 bamboo_container:
   docker.pulled:
