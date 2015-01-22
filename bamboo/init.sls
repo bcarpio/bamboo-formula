@@ -33,7 +33,7 @@ bamboo_container_running:
         -e BAMBOO_ZK_HOST="{{ zk.connection_string }}" \
         -e BAMBOO_ZK_PATH="{{ bamboo.zookeeper_path }}" \
         -e CONFIG_PATH="config/production.example.json" \
-        -e HAPROXY_TEMPLATE_PATH="/etc/bamboo/haproxycfg.template" \
+        -e HAPROXY_TEMPLATE_PATH="/etc/bamboo/haproxy_template.cfg" \
         itriage/bamboo:{{ bamboo.tag }} -bind=":8000"
     - unless: docker ps | egrep 'bamboo'
 
