@@ -9,7 +9,7 @@
 
 bamboo_container:
   docker.pulled:
-    - name: docker-prd.itriagehealth.com/bamboo
+    - name: docker-prd.itriagehealth.com/bamboo:{{ bamboo.tag }}
     - tag: {{ bamboo.tag }}
     - require:
        - pip: docker-py
