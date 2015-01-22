@@ -27,6 +27,7 @@ bamboo_container_running:
         -p 443:443 \
         -p 9000:9000 \
         -p 8000:8000 \
+        -p 8080:8080 \
         -v /etc/bamboo:/etc/bamboo \
         -e MARATHON_ENDPOINT="{{ bamboo.marathon_endpoint }}" \
         -e BAMBOO_ENDPOINT="http://localhost:{{ bamboo.bind_port }}" \
