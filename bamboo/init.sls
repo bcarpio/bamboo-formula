@@ -38,6 +38,7 @@ bamboo_service:
   docker.running:
     - name: bamboo
     - image: docker-prd.itriagehealth.com/bamboo:{{ bamboo.tag }}
+    - restart_policy: always
     - port_bindings:
         "8000/tcp":
             HostIp: ""
