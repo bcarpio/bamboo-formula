@@ -9,7 +9,8 @@
 
 bamboo_container:
   docker.pulled:
-    - name: docker-prd.itriagehealth.com/bamboo:{{ bamboo.tag }}
+    - name: itriage/bamboo
+    - tag: {{ bamboo.tag }}
     - require:
        - pip: docker-py
 
@@ -17,7 +18,7 @@ bamboo_container_installed:
   docker.installed:
     - name: bamboo
     - command: '-bind=":8000"'
-    - image: docker-prd.itriagehealth.com/bamboo:{{ bamboo.tag }}
+    - image: itriage/bamboo:{{ bamboo.tag }}
     - environment:
        - "MARATHON_ENDPOINT": "{{ bamboo.marathon_endpoint }}"
        - "BAMBOO_ENDPOINT": "http://localhost:{{ bamboo.bind_port }}"
