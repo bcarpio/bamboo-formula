@@ -37,7 +37,8 @@ bamboo_service:
     - name: bamboo
     - image: docker-prd.itriagehealth.com/bamboo:{{ bamboo.tag }}
     - volumes:
-      - /etc/bamboo: /etc/bamboo
+      - /etc/bamboo:
+          bind: /etc/bamboo
     - port_bindings:
         "8000/tcp":
             HostIp: ""
