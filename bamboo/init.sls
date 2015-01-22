@@ -32,7 +32,7 @@ bamboo_container_installed:
        - "443/tcp"
        - "9000/tcp"
     - volumes:
-       - /etc/bamboo:/etc/bamboo
+       - /etc/bamboo: /etc/bamboo
 
 bamboo_service:
   docker.running:
