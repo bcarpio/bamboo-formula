@@ -14,8 +14,6 @@ bamboo_container:
     - require:
        - pip: docker-py
 
-
-
 bamboo_container_running:
   cmd.run:
     - name: |
@@ -30,7 +28,7 @@ bamboo_container_running:
         -p 8080:8080 \
         -v /etc/bamboo:/etc/bamboo \
         -e MARATHON_ENDPOINT="{{ bamboo.marathon_endpoint }}" \
-        -e BAMBOO_ENDPOINT="http://localhost:{{ bamboo.bind_port }}" \
+        -e BAMBOO_ENDPOINT="http://{{ bamboo.bamboo_host[0] }}:{{ bamboo.bind_port }}" \
         -e BAMBOO_ZK_HOST="{{ zk.connection_string }}" \
         -e BAMBOO_ZK_PATH="{{ bamboo.zookeeper_path }}" \
         -e CONFIG_PATH="config/production.example.json" \
