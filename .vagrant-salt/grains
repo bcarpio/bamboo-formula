@@ -1,2 +1,6 @@
+zookeeper:
+  cluster_name: test
+  
 roles:
   - bamboo
+  - test
