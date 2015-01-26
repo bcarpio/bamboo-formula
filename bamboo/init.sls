@@ -19,27 +19,27 @@ bamboo_container:
 
 
 
-# bamboo_container_running:
-#   cmd.run:
-#     - name: |
-#         docker run \
-#         --name bamboo \
-#         --restart=always \
-#         -d \
-#         -p 80:80 \
-#         -p 443:443 \
-#         -p 9000:9000 \
-#         -p 8000:8000 \
-#         -p 8080:8080 \
-#         -v /etc/bamboo:/etc/bamboo \
-#         -e MARATHON_ENDPOINT="{{ bamboo.marathon_endpoint }}" \
-#         -e BAMBOO_ENDPOINT="http://localhost:{{ bamboo.bind_port }}" \
-#         -e BAMBOO_ZK_HOST="{{ zk.connection_string }}" \
-#         -e BAMBOO_ZK_PATH="{{ bamboo.zookeeper_path }}" \
-#         -e CONFIG_PATH="config/production.example.json" \
-#         -e HAPROXY_TEMPLATE_PATH="/etc/bamboo/haproxy_template.cfg" \
-#         itriage/bamboo:{{ bamboo.tag }} -bind=":8000"
-#     - unless: docker ps | egrep 'bamboo'
+bamboo_container_running:
+  cmd.run:
+    - name: |
+        docker run \
+        --name bamboo \
+        --restart=always \
+        -d \
+        -p 80:80 \
+        -p 443:443 \
+        -p 9000:9000 \
+        -p 8000:8000 \
+        -p 8080:8080 \
+        -v /etc/bamboo:/etc/bamboo \
+        -e MARATHON_ENDPOINT="{{ bamboo.marathon_endpoint }}" \
+        -e BAMBOO_ENDPOINT="http://localhost:{{ bamboo.bind_port }}" \
+        -e BAMBOO_ZK_HOST="{{ zk.connection_string }}" \
+        -e BAMBOO_ZK_PATH="{{ bamboo.zookeeper_path }}" \
+        -e CONFIG_PATH="config/production.example.json" \
+        -e HAPROXY_TEMPLATE_PATH="/etc/bamboo/haproxy_template.cfg" \
+        itriage/bamboo:{{ bamboo.tag }} -bind=":8000"
+    - unless: docker ps | egrep 'bamboo'
 
 #Docker volume mounting is currently not working... Until then we will have to
 #run the command via the command line
