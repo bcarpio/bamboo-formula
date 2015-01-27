@@ -6,6 +6,9 @@
       - name: /etc/bamboo/haproxy_template.cfg
       - source: salt://bamboo/files/haproxy_template.cfg
       - makedirs: True
+      - template: jinja
+      - context:
+          public_dns: {{ bamboo.public_dns }}
 
 bamboo_container:
   docker.pulled:
