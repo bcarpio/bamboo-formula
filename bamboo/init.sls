@@ -8,7 +8,7 @@
       - makedirs: True
       - template: jinja
       - context:
-        public_dns: {{ bamboo.public_dns }}
+          public_dns: {{ bamboo.public_dns }}
 
 bamboo_container:
   docker.pulled:

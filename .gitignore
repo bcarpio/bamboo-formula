@@ -1,6 +1,3 @@
-docker
-zookeeper
-mesosphere
 .vagrant
 .vagrant-salt/docker
 .vagrant-salt/docker-formula/
