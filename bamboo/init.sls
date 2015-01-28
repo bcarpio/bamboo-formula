@@ -9,6 +9,13 @@
       - template: jinja
       - context:
           public_dns: {{ bamboo.public_dns }}
+          bamboo_host: {{ bamboo.bamboo_host[0] }}
+
+/etc/logrotate.d/haproxy:
+  file.managed:
+      - name: /etc/logrotate.d/haproxy
+      - source: salt://bamboo/files/haproxy.logrotate
+      - makedirs: True
 
 bamboo_container:
   docker.pulled:
