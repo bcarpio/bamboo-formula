@@ -9,6 +9,7 @@
       - template: jinja
       - context:
           public_dns: {{ bamboo.public_dns }}
+          bamboo_host: {{ bamboo.bamboo_host[0] }}
 
 bamboo_container:
   docker.pulled:
