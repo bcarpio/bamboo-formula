@@ -22,6 +22,8 @@
       - name: /etc/rsyslog.d/49-haproxy.conf
       - source: salt://bamboo/files/49-haproxy.conf
       - makedirs: True
+      - listen_in:
+        - service: rsyslog
 
 bamboo_container:
   docker.pulled:
