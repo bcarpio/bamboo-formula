@@ -5,3 +5,5 @@
 .vagrant-salt/mesosphere-formula/
 .vagrant-salt/zookeeper
 .vagrant-salt/zookeeper-formula/
+.vagrant-salt/core-formula/
+.vagrant-salt/core
