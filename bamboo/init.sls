@@ -22,6 +22,8 @@
       - name: /etc/rsyslog.d/49-haproxy.conf
       - source: salt://bamboo/files/49-haproxy.conf
       - makedirs: True
+      - context:
+          bamboo_host: {{ bamboo.bamboo_host[0] }}
       - listen_in:
         - service: rsyslog
 
