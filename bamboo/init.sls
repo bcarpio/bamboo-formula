@@ -3,29 +3,29 @@
 
 /etc/bamboo/haproxy_template.cfg:
   file.managed:
-      - name: /etc/bamboo/haproxy_template.cfg
-      - source: salt://bamboo/files/haproxy_template.cfg
-      - makedirs: True
-      - template: jinja
-      - context:
-          public_dns: {{ bamboo.public_dns }}
-          bamboo_host: {{ bamboo.bamboo_host[0] }}
+    - name: /etc/bamboo/haproxy_template.cfg
+    - source: salt://bamboo/files/haproxy_template.cfg
+    - makedirs: True
+    - template: jinja
+    - context:
+        public_dns: {{ bamboo.public_dns }}
+        bamboo_host: {{ bamboo.bamboo_host[0] }}
 
 /etc/logrotate.d/haproxy:
   file.managed:
-      - name: /etc/logrotate.d/haproxy
-      - source: salt://bamboo/files/haproxy.logrotate
-      - makedirs: True
+    - name: /etc/logrotate.d/haproxy
+    - source: salt://bamboo/files/haproxy.logrotate
+    - makedirs: True
 
 /etc/rsyslog.d/49-haproxy.conf:
   file.managed:
-      - name: /etc/rsyslog.d/49-haproxy.conf
-      - source: salt://bamboo/files/49-haproxy.conf
-      - makedirs: True
-      - template: jinja
-      - context:
-          bamboo_host: {{ bamboo.bamboo_host[0] }}
-      - listen_in:
+    - name: /etc/rsyslog.d/49-haproxy.conf
+    - source: salt://bamboo/files/49-haproxy.conf
+    - makedirs: True
+    - template: jinja
+    - context:
+        bamboo_host: {{ bamboo.bamboo_host[0] }}
+    - listen_in:
         - service: rsyslog
 
 bamboo_container:
@@ -33,7 +33,7 @@ bamboo_container:
     - name: itriage/bamboo
     - tag: {{ bamboo.tag }}
     - require:
-       - pip: docker-py
+        - pip: docker-py
 
 bamboo_container_running:
   cmd.run:
